@@ -1,9 +1,11 @@
+import React from "react"
+
 import useEmailShare from "./useEmailShare"
 
 export const EmailShare = () => {
   const [userDdata, { isLoading }, { error }] = useEmailShare()
 
-  if(error) return <div>Oops! Nothing to see here!</div>
+  if (error) return <div>Oops! Nothing to see here!</div>
 
   if (isLoading || !userDdata) return null
 

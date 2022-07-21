@@ -1,26 +1,23 @@
 type UserData = {
-  name: string;
+  name: string
 }
 
 type Request = {
-  isLoading: boolean;
+  isLoading: boolean
 }
 
-type Error = {
-  error: string;
+type ErrorResult = {
+  error: Error | null
 }
 
-type UseEmailShareReuslt = [
-  UserData,
-  Request,
-  Error
-]
+type UseEmailShareReuslt = [UserData, Request, ErrorResult]
 
+export default function useEmailShare(): UseEmailShareReuslt {
+  const user: UserData = { name: "Andres" }
+  const request: Request = { isLoading: false }
+  const error: ErrorResult = { error: new Error('I broke!') }
 
-export default function useEmailShare(): UseEmailShareReusltyarn  {
-  return [
-    { name: "email" },
-    { isLoading: true },
-    { error: "error" },
-  ]
+  const result: UseEmailShareReuslt = [user, request, error]
+
+  return result
 }
